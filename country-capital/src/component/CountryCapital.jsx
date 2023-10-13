@@ -3,8 +3,8 @@ import "./CountryCapital.css"
 
 function CountryCapital({data}) {
 
-  const [selectedAnswer, setSelectedAnswer] = useState(null)
-  const [prevAnswer, setPrevAnswer] = useState(null)
+  const [selectedAns, setSelectedAns] = useState(null)
+  const [prevAns, setPrevAns] = useState(null)
 
   const [buttonList,setButtonList] = useState(shuffle ([...Object.keys(data), ...Object.values(data)]));
   
@@ -19,23 +19,23 @@ function CountryCapital({data}) {
    console.log(buttonList);
 
 
-   const handleAnswer = (e) => {
-       const answer = e.target.value;
+   const handleAns = (e) => {
+       const ans = e.target.value;
 
-       if(!selectedAnswer) {
-        setSelectedAnswer(answer)
+       if(!selectedAns) {
+        setSelectedAns(ans)
        }else {
-        if(data[selectedAnswer] === answer || data[answer] === selectedAnswer) {
-          setButtonList(buttonList.filter(b => b !== answer && b !==selectedAnswer ));
-          setSelectedAnswer(null);
-          setPrevAnswer(null);
+        if(data[selectedAns] === ans || data[ans] === selectedAns) {
+          setButtonList(buttonList.filter(b => b !== ans && b !==selectedAns ));
+          setSelectedAns(null);
+          setPrevAns(null);
         } else {
-          setPrevAnswer(selectedAnswer);
-          setSelectedAnswer(answer);
+          setPrevAns(selectedAns);
+          setSelectedAns(ans);
 
           setTimeout(() => {
-            setSelectedAnswer(null);
-          setPrevAnswer(null);
+            setSelectedAns(null);
+          setPrevAns(null);
           },1000);
         }
        }
@@ -48,13 +48,13 @@ function CountryCapital({data}) {
    return (
     <div>
      {
-      <h1>Capital Game</h1>
+      <h1>Country Capital Game</h1>
      }
       {
         buttonList.map((item) => {
-       return <button key={item} className={`Buttons ${selectedAnswer === item ? "selected" : ''} 
-       ${prevAnswer && (item === selectedAnswer || item === prevAnswer) ? "incorrect" : '' }`} 
-       onClick={handleAnswer} value={item}>{item}</button>
+       return <button key={item} className={`Buttons ${selectedAns === item ? "selected" : ''} 
+       ${prevAns && (item === selectedAns || item === prevAns) ? "incorrect" : '' }`} 
+       onClick={handleAns} value={item}>{item}</button>
         })
       }
     </div>

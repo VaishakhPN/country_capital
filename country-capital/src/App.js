@@ -9,7 +9,9 @@ function App() {
   "India": "New Delhi",
   "Australia" : "Canberra",
   "Japan" : "Tokyo",
+  "Russia" : "Moscow",
   "Germany" : "Berlin",
+  "USA" : "Washington D.C",
   "UAE" : "Abu Dhabi",
 };
 
