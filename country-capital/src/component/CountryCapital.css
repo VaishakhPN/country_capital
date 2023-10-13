@@ -1,0 +1,15 @@
+.Buttons {
+    border-radius: 50px;
+    height: 30px;
+    width: auto;
+    border: 3px solid black;
+    margin: 10px;
+}
+
+button.selected {
+    background-color: #0000ff;
+}
+  
+button.incorrect {
+    background-color: #ff0000;
+}
